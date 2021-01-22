@@ -13,5 +13,4 @@ public class PostController {
         return searchParam;
     }
 
-    @PutMapping()
 }
