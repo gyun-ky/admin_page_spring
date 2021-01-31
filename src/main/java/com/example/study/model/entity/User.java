@@ -6,12 +6,12 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor //기본 생성자
 @Entity
-@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +30,7 @@ public class User {
     private LocalDateTime updateAt;
 
     private String updateBy;
+
+    @OneToMany(fetch=FetchType.LAZY, mappedBy = "user")
+    private List<OrderDetail> orderDetailList;
 }
