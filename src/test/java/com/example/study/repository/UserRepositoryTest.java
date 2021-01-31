@@ -52,7 +52,7 @@ public class UserRepositoryTest extends StudyApplicationTests {
     public void update(){
 
         //select * from user where id = ?
-        Optional<User> user = userRepository.findById(4L);
+        Optional<User> user = userRepository.findByAccount("TestUser02");
 
         user.ifPresent(selectUser->{
             selectUser.setAccount("pppp");
