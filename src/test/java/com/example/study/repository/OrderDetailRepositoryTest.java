@@ -13,18 +13,18 @@ public class OrderDetailRepositoryTest extends StudyApplicationTests {
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 
-    @Test
-    public void create(){
-        OrderDetail orderDetail = new OrderDetail();
-
-        orderDetail.setOrderAt(LocalDateTime.now());
-
-//        orderDetail.setItemId(1L);
+//    @Test
+//    public void create(){
+//        OrderDetail orderDetail = new OrderDetail();
 //
-//        orderDetail.setUserId(5L);
-
-        OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
-
-        Assert.assertNotNull(newOrderDetail);
-    }
+//        orderDetail.setOrderAt(LocalDateTime.now());
+//
+////        orderDetail.setItemId(1L);
+////
+////        orderDetail.setUserId(5L);
+//
+//        OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
+//
+//        Assert.assertNotNull(newOrderDetail);
+//    }
 }

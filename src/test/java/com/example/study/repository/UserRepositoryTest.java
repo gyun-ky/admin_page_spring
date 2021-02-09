@@ -35,47 +35,4 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
     }
 
-    @Test
-    @Transactional
-    public void read(){
-        Optional<User> user = userRepository.findById(5L);
-
-        user.ifPresent(selectUser->{
-            selectUser.getOrderDetailList().stream().forEach(detail->{
-                Item item = detail.getItem();
-                System.out.println(item);
-            });
-        });
-    }
-
-    @Test
-    public void update(){
-
-        //select * from user where id = ?
-        Optional<User> user = userRepository.findByAccount("TestUser02");
-
-        user.ifPresent(selectUser->{
-            selectUser.setAccount("pppp");
-            selectUser.setUpdateAt(LocalDateTime.now());
-            selectUser.setUpdateBy("update method()");
-
-            userRepository.save(selectUser);
-        });
-    }
-
-    @Test
-    @Transactional // roll back 시켜서 쿼리는 실행하지만 db에는 결론적으로 반영되지 않는다
-    public void delete(){
-        Optional<User> user = userRepository.findById(1L);
-
-        Assert.assertTrue(user.isPresent()); //true
-
-        user.ifPresent(selectUser->{
-            userRepository.delete(selectUser);
-        });
-
-        Optional<User> deleteUser = userRepository.findById(1L);
-
-        Assert.assertFalse(deleteUser.isPresent()); //false
-    }
 }
